@@ -1,6 +1,6 @@
 # **Capacitive Soil Moisture Sensing and Automated Watering System**
 
-Welcome to the GitHub repository for my **capacitive soil moisture sensing** and **automated irrigation system**. This project introduces an efficient method for monitoring soil moisture levels using a **capacitive sensing PCB** and automating irrigation using a **relay-controlled water pump**. The system is designed to optimize water usage in **gardening, agriculture, and precision farming**, ensuring plants receive adequate water while preventing overwatering.
+Welcome to the GitHub repository for my **capacitive soil moisture sensing** and **automated irrigation system**. This project introduces an efficient method for monitoring soil moisture levels using a **capacitive sensing PCB** and automating irrigation using a **relay-controlled water pump**. The system is designed to optimize water usage in **gardening, agriculture, and precision farming**, ensuring plants receive adequate water while preventing overwatering. The system utilizes a Master-Slave communication approach between two Arduino devices, enabling seamless data collection and control.
 
 By integrating **capacitance-based moisture detection** with an Arduino-based control system, this project demonstrates a **low-power, non-invasive**, and **cost-effective** approach to soil monitoring. The **LCD display** provides real-time feedback, while the system autonomously regulates watering cycles based on predefined soil moisture thresholds.
 
@@ -11,13 +11,18 @@ By integrating **capacitance-based moisture detection** with an Arduino-based co
 ### **Sensor System Image**
 *(Insert Image Here)*
 
-The system consists of:
--  **Custom PCB capacitive soil moisture sensor**
--  **Arduino Uno** for data processing
--  **LCD screen** for real-time data visualization
--  **Relay module** controlling a **12V water pump**
--  **12V power supply**
--  **Whadda Water Valve (12V)**
+The project consists of two main Arduino programs:
+
+**1. Master (Sensor) Arduino**
+- Reads data from the capacitive soil moisture sensor.
+- Displays soil readings on an LCD screen.
+- Sends the moisture level data to the Slave Arduino via I2C communication.
+
+**2. Slave (Watering System) Arduino**
+- Receives moisture data from the Master Arduino.
+- Controls the water pump and water valve using a relay module.
+- Executes automated watering logic based on preset threshold values.
+
 
 This setup enables **accurate moisture detection** and **automated water regulation** to maintain optimal soil hydration.
 
@@ -27,7 +32,7 @@ This setup enables **accurate moisture detection** and **automated water regulat
 
 To replicate this project, you will need:
 
-- **Arduino Uno**
+- **Arduino Uno (x2)**
 - **Custom PCB capacitive soil moisture sensor**
 - **Adafruit MPR121 capacitive sensing IC**
 - **16x2 I2C LCD Display**
@@ -36,6 +41,7 @@ To replicate this project, you will need:
 - **Whadda Water Valve (12V)**
 - **12V Power Supply**
 - **Jumper Wires**
+- **HC-05 Bluetooth module**
 
 ---
 
@@ -74,11 +80,15 @@ Before getting started, ensure you have:
 
 ##  Running the System
 
-### **Uploading the Arduino Code**
-1. Open the `.ino` file in **Arduino IDE**
-2. Select **Board: Arduino Uno**
-3. Select **Port: (your device port)**
-4. Click **Verify** (✔️) and **Upload** (⏩)
+### **Uploading Master Code**
+1. Open the `Official_Master.ino` file in **Arduino IDE**
+2. Select the correct board and port
+3. Click **Verify** (✔️) and **Upload** (⏩)
+
+### **Uploading Slave Code**
+1. Open the `Official_Slave.ino` file in **Arduino IDE**
+2. Select the correct board and port
+3. Click **Verify** (✔️) and **Upload** (⏩)
 
 ---
 
@@ -105,7 +115,6 @@ Before getting started, ensure you have:
 
 ### **Future Improvements**
 - **Machine Learning for False Positives**: Train an AI model to filter out **false moisture fluctuations**.
-- **Real-time Wireless Monitoring**: Implement **Bluetooth or Wi-Fi** connectivity for remote soil data monitoring.
 - **Adaptive Watering Algorithm**: Improve efficiency by **adjusting watering frequency** based on historical soil data.
 - **Multi-Sensor Integration**: Use multiple **distributed sensors** for **wider soil coverage**.
 - **Low-Power Optimization**: Enhance efficiency for **solar-powered or battery-based operation**.
