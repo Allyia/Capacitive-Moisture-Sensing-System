@@ -9,7 +9,9 @@ By integrating **capacitance-based moisture detection** with an Arduino-based co
 ##  System Overview
 
 ### **Sensor System Image**
-*(Insert Image Here)*
+*![image](https://github.com/user-attachments/assets/e8da0b6e-5de6-4a7e-bcfe-84e34dc8414d)
+![image](https://github.com/user-attachments/assets/03141423-f368-4b49-9ed8-233db4bbab41)
+*
 
 The project consists of two main Arduino programs:
 
